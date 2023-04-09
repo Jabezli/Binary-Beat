@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS binaryBeat_db;
+
+CREATE DATABASE binaryBeat_db;
