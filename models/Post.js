@@ -29,8 +29,10 @@ Post.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
+    createdAt: "created_at",
+    updatedAt: "updated_at",
     underscored: true,
     modelName: "post",
   }
