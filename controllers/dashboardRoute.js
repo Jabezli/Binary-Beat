@@ -26,7 +26,7 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
-//create a new post
+//render create a new post page
 router.get("/createPost", withAuth, (req, res) => {
   res.render("createPost", {
     layout: "dashboard",
