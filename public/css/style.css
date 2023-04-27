@@ -1,2 +1,58 @@
 /* font-family: 'Black Ops One', cursive; */
 
+footer {
+    bottom: 0;
+    width: 100%;
+    height: 50px; /* adjust the height to the actual height of your footer */
+    text-align: center;
+    font-style: italic;
+    color:black
+}
+
+.login-box {
+    width: 300px;
+    background-color: #fff;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .login-box h1 {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 0px;
+  }
+  
+  /* selectors per type to link html */
+  .login-box input[type="text"],
+  .login-box input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .login-box button {
+    background-color: #4489b7;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .login-box button:hover {
+    background-color: #5a94ba;
+  
+  }
+  
+  .login-box a {
+    color: #4489b7;
+  }
+  
+  

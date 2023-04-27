@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     });
     //post.get plain true : return json format.
     const posts = postData.map((post) => post.get({ plain: true }));
-    console.log(posts);
+
     res.status(200).render("homePage", { posts });
   } catch (err) {
     res.status(500).json(err);
@@ -51,7 +51,7 @@ router.get("/post/:id", async (req, res) => {
     } else {
       const post = postData.get({ plain: true });
       console.log(post);
-      res.status(200).render("singlePost", { post });
+      res.status(200).render("postPage", { post });
     }
   } catch (err) {
     res.status(500).json(err);
@@ -59,16 +59,16 @@ router.get("/post/:id", async (req, res) => {
 });
 
 //login
-router.get("/login", withAuth, async (req, res) => {
+router.get("/login", async (req, res) => {
   try {
-    res.status(200).render("login");
+    res.render("login");
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 //signup
-router.get("/signup", (res, req) => {
+router.get("/signup", (req, res) => {
   try {
     if (req.session.loggedIn) {
       res.redirect("/");
@@ -82,9 +82,21 @@ router.get("/signup", (res, req) => {
 });
 
 //show dashboard
+//get all posts of a user
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    res.render("dashboardPage", {});
+    const postData = await Post.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    res.status(200).render("dashboardPage", {
+      loggedIn: req.session.loggedIn,
+      posts,
+    });
   } catch (err) {
     res.status(500).json(err);
   }

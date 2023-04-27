@@ -1,0 +1,16 @@
+<div class="text-center">
+
+    {{#each posts}}
+
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{body}}</p>
+                <p class="card-text">Posted at {{format_date created_at}}</p>
+                <a href="/post/{{id}}" class="btn btn-primary">See the Details</a>
+            </div>
+        </div>
+
+    {{/each}}
+
+</div>

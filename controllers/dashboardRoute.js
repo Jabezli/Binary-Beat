@@ -9,6 +9,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
   try {
+    console.log(hi);
     const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id,
@@ -17,10 +18,7 @@ router.get("/", withAuth, async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.status(200).render("userPosts", {
-      layout: "dashboard",
-      posts,
-    });
+    res.status(200).render("dashboardPage", { posts });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -28,9 +26,7 @@ router.get("/", withAuth, async (req, res) => {
 
 //render create a new post page
 router.get("/createPost", withAuth, (req, res) => {
-  res.render("createPost", {
-    layout: "dashboard",
-  });
+  res.render("createPost");
 });
 
 //when select a specific post, render the edit post page
@@ -41,7 +37,6 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     if (postData) {
       const post = postData.get({ plain: ture });
       res.status(200).render("editPost", {
-        layout: "dashboard",
         post,
       });
     } else {

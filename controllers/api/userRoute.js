@@ -13,13 +13,11 @@ router.post("/", async (req, res) => {
       password: req.body.password,
     });
 
-    req.session.save(() => {
-      req.session.user_id = newUser.id;
-      req.session.username = newUser.username;
-      req.session.loggedIn = true;
-      //tested. works.
-      res.status(200).json(newUser);
-    });
+    req.session.user_id = newUser.id;
+    req.session.username = newUser.username;
+    req.session.loggedIn = true;
+    //tested. works.
+    res.status(200).json(newUser);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -59,11 +57,10 @@ router.post("/login", async (req, res) => {
     }
     //if js runs to this line, it means both username and password are correct.
 
-    req.session.save(() => {
-      req.session.user_id = user.id;
-      req.session.username = user.username;
-      req.session.loggedIn = true;
-    });
+    req.session.user_id = user.id;
+    req.session.username = user.username;
+    req.session.loggedIn = true;
+    console.log(req.session);
     //tested. works.
     res.status(200).json({ user, message: `Welcome back ${user.username}!` });
     console.log(user);

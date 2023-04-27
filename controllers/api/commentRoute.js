@@ -22,7 +22,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-//update a comment
+//update a comment (may not be achieved in frontend at this moment)
 router.put("/", withAuth, async (req, res) => {
   try {
     const commentData = await Comment.create(
@@ -44,7 +44,7 @@ router.put("/", withAuth, async (req, res) => {
   }
 });
 
-//delete a comment
+//delete a comment (may not be achieved in frontend at this moment)
 router.delete("/", withAuth, async (req, res) => {
   try {
     const commentData = await Comment.destroy({

@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="card text-center margin-auto">
+        <div class="card-header">
+        Posted by {{post.user.username}}
+        </div>
+        <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.body}}</p>
+        </div>
+        <div class="card-footer text-body-secondary">
+        Created at {{format_date post.created_at}}
+        </div>
+    </div>
+    
+    {{#if post.comments}}
+        <div class="container">
+            {{#each post.comments}}
+                <div class="card text-center margin-auto">
+                    <hr>
+                    <div class="card-header">
+                        Comment by {{user.username}}
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{comment}}</p>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        Created at {{format_date created_at}}
+                    </div>
+                </div>   
+            {{/each}}
+        </div>
+    {{/if}}
+    <div class="mb-3 container">
+        <label for="exampleFormControlTextarea1" class="form-label mt-3">Leave Your Comment</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <button type="button" class="mt-3 btn btn-light">Send</button>
+    </div>
+ 
+</div>
