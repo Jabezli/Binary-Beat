@@ -17,7 +17,10 @@ router.get("/", async (req, res) => {
     //post.get plain true : return json format.
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.status(200).render("homePage", { posts });
+    res.status(200).render("homePage", {
+      loggedIn: req.session.loggedIn,
+      posts,
+    });
   } catch (err) {
     res.status(500).json(err);
   }

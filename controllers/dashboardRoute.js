@@ -5,25 +5,6 @@ const withAuth = require("../utils/auth");
 
 //endpoint /dashboard
 
-//get all posts of a user
-
-router.get("/", withAuth, async (req, res) => {
-  try {
-    console.log(hi);
-    const postData = await Post.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
-    });
-
-    const posts = postData.map((post) => post.get({ plain: true }));
-
-    res.status(200).render("dashboardPage", { posts });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 //render create a new post page
 router.get("/createPost", withAuth, (req, res) => {
   res.render("createPost");
