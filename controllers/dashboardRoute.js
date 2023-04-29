@@ -6,18 +6,27 @@ const withAuth = require("../utils/auth");
 //endpoint /dashboard
 
 //render create a new post page
-router.get("/createPost", withAuth, (req, res) => {
-  res.render("createPost");
+router.get("/createPost", withAuth, async (req, res) => {
+  try {
+    res.render("editPost", {
+      loggedIn: req.session.loggedIn,
+      isNewPost: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 //when select a specific post, render the edit post page
-router.get("/edit/:id", withAuth, async (req, res) => {
+router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
 
     if (postData) {
       const post = postData.get({ plain: ture });
       res.status(200).render("editPost", {
+        logged_in: req.session.logged_in,
+        isNewPost: false,
         post,
       });
     } else {

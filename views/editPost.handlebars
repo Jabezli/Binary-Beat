@@ -1,0 +1,26 @@
+<div class="text-center container-fluid w-50">
+    <h3>
+    {{#if isNewPost}}
+    Create Your New Post Below
+    {{else}}
+    Edit Post
+    {{/if}}
+    </h3>
+    <div class="mb-3 ">
+        <label for="exampleFormControlInput1" class="form-label  d-flex align-items-start fs-4">Title</label>
+        <input type="text" class="form-control postTitle" required id="exampleFormControlInput1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label  d-flex align-items-start fs-4">Share Your Thought</label>
+        <textarea class="form-control postBody" required id="exampleFormControlTextarea1" rows="6"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg px-20" id="submitBtn">
+        {{#if isNewPost}}
+        Post
+        {{else}}
+        Update
+        {{/if}}
+    </button>
+</div>
+
+<script src="/js/createPost.js"></script>

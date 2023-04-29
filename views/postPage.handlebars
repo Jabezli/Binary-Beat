@@ -4,19 +4,23 @@
         Posted by {{post.user.username}}
         </div>
         <div class="card-body">
-        <h5 class="card-title">{{post.title}}</h5>
-        <p class="card-text">{{post.body}}</p>
+        <h5 class="card-title " id="postTitle">{{post.title}}</h5>
+        <p class="card-text" id="postBody">{{post.body}}</p>
         </div>
         <div class="card-footer text-body-secondary">
-        Created at {{format_date post.created_at}}
+                Created at {{format_date post.created_at}}
+                
+        </div>
+        <div>
+        <button type="button" class="mt-3 btn btn-light editPost">Edit Post</button>
+        <button type="button" class="mt-3 btn btn-light deletePost">Delete Post</button>
         </div>
     </div>
     
     {{#if post.comments}}
         <div class="container">
             {{#each post.comments}}
-                <div class="card text-center margin-auto">
-                    <hr>
+                <div class="card text-center margin-auto mt-2">
                     <div class="card-header">
                         Comment by {{user.username}}
                     </div>
@@ -37,3 +41,5 @@
     </div>
  
 </div>
+
+<script src="/js/postPage.js"></script>
