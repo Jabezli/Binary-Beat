@@ -7,12 +7,12 @@
     {{/if}}
     </h3>
     <div class="mb-3 ">
-        <label for="exampleFormControlInput1" class="form-label  d-flex align-items-start fs-4">Title</label>
-        <input type="text" class="form-control postTitle" required id="exampleFormControlInput1">
+        <label  class="form-label  d-flex align-items-start fs-4">Title</label>
+        <input type="text" class="form-control postTitle" required value="{{#if isNewPost}} {{else}}{{post.title}}{{/if}}">
     </div>
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label  d-flex align-items-start fs-4">Share Your Thought</label>
-        <textarea class="form-control postBody" required id="exampleFormControlTextarea1" rows="6"></textarea>
+        <label  class="form-label  d-flex align-items-start fs-4">Share Your Thought</label>
+        <textarea class="form-control postBody" required rows="6">{{#if isNewPost}}{{else}}{{post.body}}{{/if}}</textarea>
     </div>
     <button type="button" class="btn btn-primary btn-lg px-20" id="submitBtn">
         {{#if isNewPost}}
@@ -23,4 +23,8 @@
     </button>
 </div>
 
+{{#if isNewPost}}
 <script src="/js/createPost.js"></script>
+{{else}}
+<script src="/js/editPost.js"></script>
+{{/if}}

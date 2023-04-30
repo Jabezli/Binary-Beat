@@ -37,6 +37,8 @@ router.put("/", withAuth, async (req, res) => {
       res.status(404).json({ message: "Post was not found" });
     } else {
       res.status(200).json(postData);
+      console.log(postData);
+      console.log(postData.title);
     }
   } catch (err) {
     res.status(500).json(err);

@@ -23,12 +23,13 @@ router.get("/post/:id", withAuth, async (req, res) => {
     const postData = await Post.findByPk(req.params.id);
 
     if (postData) {
-      const post = postData.get({ plain: ture });
+      const post = postData.get({ plain: true });
       res.status(200).render("editPost", {
-        logged_in: req.session.logged_in,
+        loggedIn: req.session.loggedIn,
         isNewPost: false,
         post,
       });
+      console.log(post);
     } else {
       res.status(404).json({ message: "Cannot find any post with this id" });
     }
