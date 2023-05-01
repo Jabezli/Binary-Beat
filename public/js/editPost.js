@@ -18,9 +18,9 @@ const editHandler = async () => {
       body: JSON.stringify({ title, body, post_id: postNum }),
       headers: { "Content-Type": "application/json" },
     });
-    // if (response.ok) {
-    //   document.location.replace("/dashboard");
-    // }
+    if (response.ok) {
+      document.location.replace("/dashboard");
+    }
   }
 };
 
