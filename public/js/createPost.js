@@ -5,7 +5,7 @@ const createPost = async (event) => {
 
   const title = document.querySelector(".postTitle").value;
   const body = document.querySelector(".postBody").value;
-  console.log(title, body);
+
   const response = await fetch("/api/post", {
     method: "POST",
     body: JSON.stringify({ title, body }),

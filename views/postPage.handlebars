@@ -33,8 +33,9 @@
     {{/if}}
     <div class="mb-3 container">
         <label for="exampleFormControlTextarea1" class="form-label mt-3">Leave Your Comment</label>
-        <textarea class="form-control commentContent" id="exampleFormControlTextarea1" rows="3" required></textarea>
-        <button type="button" class="mt-3 btn btn-light sendBtn">Send</button>
+        <textarea class="form-control commentContent" id="exampleFormControlTextarea1" rows="3" 
+            {{#if loggedIn}} placeholder="Leave your comment here" {{else}}placeholder="Please login first." disabled{{/if}}></textarea>
+        <button type="button" class="mt-3 btn btn-light sendBtn" {{#if loggedIn}}{{else}}disabled{{/if}}>Send</button>
     </div>
  
 </div>

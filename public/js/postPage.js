@@ -3,11 +3,9 @@ const sendBtn = document.querySelector(".sendBtn");
 const leaveComment = async () => {
   try {
     const comment = document.querySelector(".commentContent").value;
-    console.log(comment);
+
     const pathName = location.pathname.split("/post/");
     const postNum = parseInt(pathName[1]);
-
-    console.log(postNum);
 
     if (comment) {
       const response = await fetch("/api/comment/", {
@@ -16,10 +14,7 @@ const leaveComment = async () => {
         headers: { "Content-Type": "application/json" },
       });
       if (response.ok) {
-        console.log(response.ok);
         document.location.reload();
-      } else {
-        alert("Please login before leaving comment.");
       }
     } else {
       alert("Oops! Looks like you forgot to type your comment!");

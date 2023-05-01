@@ -4,8 +4,6 @@ const withAuth = require("../../utils/auth");
 
 //end point /api/post
 //creat a post
-
-//worked without auth
 router.post("/", withAuth, async (req, res) => {
   try {
     const user_id = req.session.user_id;
@@ -20,7 +18,6 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-//worked without auth
 router.put("/", withAuth, async (req, res) => {
   try {
     const postData = await Post.update(
@@ -46,7 +43,6 @@ router.put("/", withAuth, async (req, res) => {
 });
 
 //delete a post
-//worked without auth
 router.delete("/", withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({

@@ -5,7 +5,6 @@ deleteBtns.forEach((btn) => {
     event.preventDefault();
 
     const id = btn.getAttribute("postId");
-    console.log(id);
 
     const response = await fetch("/api/post", {
       method: "DELETE",

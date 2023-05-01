@@ -16,7 +16,6 @@ router.post("/", async (req, res) => {
     req.session.user_id = newUser.id;
     req.session.username = newUser.username;
     req.session.loggedIn = true;
-    //tested. works.
     res.status(200).json(newUser);
   } catch (err) {
     res.status(500).json(err);
@@ -61,7 +60,6 @@ router.post("/login", async (req, res) => {
     req.session.username = user.username;
     req.session.loggedIn = true;
     console.log(req.session);
-    //tested. works.
     res.status(200).json({ user, message: `Welcome back ${user.username}!` });
     console.log(user);
   } catch (err) {
