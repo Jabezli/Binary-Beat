@@ -12,7 +12,9 @@ In our community, we believe in the power of collaboration and open communicatio
 
 So come join us and be a part of our vibrant community. We can't wait to see what amazing things we can achieve together!
 
-[App Link](https://watch.screencastify.com/v/8GIK8YQga6MCvtUQdJQ1)
+[App Link](https://protected-shore-69380.herokuapp.com/)
+
+![](/public/image/screenshot.png)
 
 ---
 
